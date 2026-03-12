@@ -125,20 +125,23 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center text-white font-serif italic text-xl shadow-lg shrink-0">I</div>
-          <span className={`font-serif text-lg sm:text-xl font-bold tracking-tight ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
-            Inspiração <span className="text-pink-600">Moda</span>
-          </span>
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shrink-0">EU</div>
+          <div className="flex flex-col leading-tight">
+            <span className={`font-serif text-xl font-bold tracking-tight ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
+              Inspiração
+            </span>
+            <span className="text-pink-600 font-serif text-lg font-bold">Moda</span>
+          </div>
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href} 
-              className={`text-sm font-medium uppercase tracking-wider transition-colors hover:text-pink-600 ${isScrolled ? 'text-gray-700' : 'text-white'}`}
+              className={`text-[11px] xl:text-xs font-bold uppercase tracking-widest transition-colors hover:text-pink-600 ${isScrolled ? 'text-gray-700' : 'text-white'}`}
             >
               {link.name}
             </a>
@@ -147,7 +150,7 @@ const Navbar = () => {
             href="https://wa.me/5516997634639" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-pink-600 text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-pink-700 transition-all shadow-lg hover:scale-105"
+            className="bg-pink-600 text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-pink-700 transition-all shadow-lg hover:scale-105"
           >
             WhatsApp
           </a>
@@ -155,7 +158,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden text-pink-600"
+          className="lg:hidden text-pink-600"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} className={isScrolled ? 'text-gray-900' : 'text-white'} />}
@@ -169,7 +172,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-white shadow-xl py-6 px-4 flex flex-col gap-4 md:hidden max-h-[80vh] overflow-y-auto"
+            className="absolute top-full left-0 w-full bg-white shadow-xl py-6 px-4 flex flex-col gap-4 lg:hidden max-h-[80vh] overflow-y-auto"
           >
             {navLinks.map((link) => (
               <a 
@@ -196,12 +199,12 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden py-24 md:py-0">
+    <section className="relative min-h-screen flex items-center overflow-hidden py-24 lg:py-0">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&q=80&w=2000" 
-          alt="Loja de Roupas" 
+          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=2000" 
+          alt="Moda Feminina Elegante" 
           className="w-full h-full object-cover object-center"
           referrerPolicy="no-referrer"
         />
@@ -215,63 +218,48 @@ const Hero = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-2xl text-white"
+          className="max-w-3xl text-white"
         >
           <span className="inline-block bg-pink-600/20 backdrop-blur-sm border border-pink-500/30 text-pink-200 px-4 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-6">
-            Boutique de Moda Feminina
+            Boutique de Moda & Presentes
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold leading-tight mb-6">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif font-bold leading-tight mb-6">
             Elegância e Estilo em <span className="italic text-pink-400">Cada Peça</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-10 leading-relaxed max-w-lg">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed max-w-xl">
             Descubra nossa coleção exclusiva de roupas femininas. Qualidade premium, atendimento VIP e peças únicas para realçar sua beleza.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a 
               href="#categorias" 
-              className="bg-pink-600 text-white px-8 md:px-10 py-4 rounded-full font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-pink-700 transition-all shadow-xl hover:scale-105"
+              className="bg-pink-600 text-white px-8 md:px-12 py-5 rounded-full font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-pink-700 transition-all shadow-xl hover:scale-105"
             >
-              <ShoppingBag size={20} /> Ver Coleção
+              <ShoppingBag size={22} /> Ver Coleção
             </a>
             <a 
               href="#contato" 
-              className="bg-white text-pink-600 px-8 md:px-10 py-4 rounded-full font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-gray-100 transition-all shadow-xl hover:scale-105"
+              className="bg-white text-pink-600 px-8 md:px-12 py-5 rounded-full font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-gray-100 transition-all shadow-xl hover:scale-105"
             >
-              <MapPin size={20} /> Visite-nos
+              <MapPin size={22} /> Visite-nos
             </a>
           </div>
 
-          <div className="mt-12 md:mt-16 flex flex-wrap items-center gap-8 md:gap-12 opacity-80">
+          <div className="mt-16 md:mt-24 flex flex-wrap items-center gap-10 md:gap-16 opacity-90">
             <div>
-              <p className="text-2xl md:text-3xl font-bold">5000+</p>
-              <p className="text-[10px] uppercase tracking-widest text-pink-300">Clientes</p>
+              <p className="text-3xl md:text-4xl font-bold">Mais de 5000</p>
+              <p className="text-xs uppercase tracking-widest text-pink-300 font-bold">Clientes</p>
             </div>
             <div>
-              <p className="text-2xl md:text-3xl font-bold">10+</p>
-              <p className="text-[10px] uppercase tracking-widest text-pink-300">Anos</p>
+              <p className="text-3xl md:text-4xl font-bold">10+</p>
+              <p className="text-xs uppercase tracking-widest text-pink-300 font-bold">Anos</p>
             </div>
             <div>
-              <p className="text-2xl md:text-3xl font-bold">100%</p>
-              <p className="text-[10px] uppercase tracking-widest text-pink-300">Autêntico</p>
+              <p className="text-3xl md:text-4xl font-bold">100%</p>
+              <p className="text-xs uppercase tracking-widest text-pink-300 font-bold">Autêntico</p>
             </div>
           </div>
         </motion.div>
       </div>
-
-      {/* Floating Image Card for Desktop - Adjusted position and z-index */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
-        className="hidden xl:block absolute right-10 2xl:right-20 top-1/2 -translate-y-1/2 w-[350px] 2xl:w-[400px] h-[500px] 2xl:h-[550px] rounded-[40px] overflow-hidden border-8 border-white/10 shadow-2xl z-0"
-      >
-        <img 
-          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800" 
-          alt="Modelo Moda" 
-          className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      </motion.div>
     </section>
   );
 };
